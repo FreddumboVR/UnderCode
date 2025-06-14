@@ -26,6 +26,7 @@ function makeBadGuyStuff () {
         `, SpriteKind.Projectile)
     BadGuyProjectile.setPosition(4, randint(52, 113))
     BadGuyProjectile.setVelocity(randint(60, 90), 0)
+    BadGuyProjectile.lifespan = 5000
     animation.runImageAnimation(
     BadGuyProjectile,
     [img`
@@ -149,7 +150,8 @@ let Bad_boi = sprites.create(img`
     `, SpriteKind.Enemy)
 Bad_boi.setPosition(79, 27)
 statusbar = statusbars.create(120, 4, StatusBarKind.Health)
-statusbar.setLabel("HP", 8)
+statusbar.setLabel("HP", 1)
+statusbar.value = 100
 statusbar.setPosition(77, 115)
 game.onUpdateInterval(500, function () {
     makeBadGuyStuff()
