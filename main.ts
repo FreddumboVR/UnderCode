@@ -2,7 +2,7 @@ statusbars.onZero(StatusBarKind.Health, function (status) {
     carnival.onGameOverExpanded(carnival.WinTypes.Lose)
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, otherSprite) {
-    sprites.destroy(otherSprite, effects.fire, 500)
+    sprites.destroy(otherSprite, effects.fire, 200)
     statusbar.value += -10
 })
 function makeBadGuyStuff () {
@@ -104,7 +104,7 @@ function makeBadGuyStuff () {
 }
 let BadGuyProjectile: Sprite = null
 let statusbar: StatusBarSprite = null
-game.splash("UnderCode:", "A battle from Undertale.")
+game.splash("Undertale battle:", "In Makecode.")
 game.splash("I don't know how to make", "the player attack sorry.")
 game.splash("Dodge the balls.", "You stinky butt-face.")
 tiles.setCurrentTilemap(tilemap`level1`)
@@ -152,6 +152,7 @@ Bad_boi.setPosition(79, 27)
 statusbar = statusbars.create(120, 4, StatusBarKind.Health)
 statusbar.setLabel("HP", 1)
 statusbar.value = 100
+statusbar.setStatusBarFlag(StatusBarFlag.SmoothTransition, true)
 statusbar.setPosition(77, 115)
 game.onUpdateInterval(500, function () {
     makeBadGuyStuff()
